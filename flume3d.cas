@@ -53,9 +53,6 @@ SCHEME FOR ADVECTION OF TRACERS : 5
 SCHEME OPTION FOR ADVECTION OF VELOCITIES : 4 / use 2 for without tidal flats for speed
 SCHEME OPTION FOR ADVECTION OF K-EPSILON : 4
 SCHEME OPTION FOR ADVECTION OF TRACERS : 4
-COEFFICIENT FOR HORIZONTAL DIFFUSION OF VELOCITIES : 1.E-6
-MIXING LENGTH MODEL : 3
-COEFFICIENT FOR VERTICAL DIFFUSION OF VELOCITIES   : 1.E-6
 /
 MATRIX STORAGE : 3 / 1 (element-by-element), 3 (segment-wise faster)
 SUPG OPTION : 2;2;2;2  / classic supg for U and V  see docs sec 6.2.2
@@ -140,13 +137,14 @@ PRESCRIBED ELEVATIONS : 2.;0.
 / INITIAL CONDITIONS
 / ------------------------------------------------------------------
 INITIAL CONDITIONS : 'CONSTANT ELEVATION' / or CONSTANT DEPTH see docs sec. 4.2
-INITIAL ELEVATION : 50 / corresponds to depth here - not in boundary file
+INITIAL ELEVATION : 50. / corresponds to depth here - not in boundary file 
 / INITIAL DEPTH :  2. 
 INITIAL GUESS FOR DEPTH : 1 / INTEGER for speeding up calculations
 /
 / Other
 /------------------------------------------------------------------
 VELOCITY VERTICAL PROFILES : 2;2 / 0 (user-defined), 1 (Constant), 2 (Log)
+VELOCITY PROFILES : 1;1 / horizontal profile
 /
 /------------------------------------------------------------------/
 /			TURBULENCE
@@ -155,6 +153,9 @@ VELOCITY VERTICAL PROFILES : 2;2 / 0 (user-defined), 1 (Constant), 2 (Log)
 /  Smagorinsky (4) for highly non-linear flow 
 HORIZONTAL TURBULENCE MODEL : 3
 VERTICAL TURBULENCE MODEL : 3
+MIXING LENGTH MODEL : 3 / telemac docs sec. 5.2.2
+COEFFICIENT FOR HORIZONTAL DIFFUSION OF VELOCITIES : 1.E-6 / is default
+COEFFICIENT FOR VERTICAL DIFFUSION OF VELOCITIES   : 1.E-6 / is default
 /
 /------------------------------------------------------------------/
 /			TIDAL FLATS
